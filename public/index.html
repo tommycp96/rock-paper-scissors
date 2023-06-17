@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock, Paper, Scissors Camera! | coding398</title>
+  <meta property='og:title'  content='Rock, Paper, Camera! by coding398'>
+  <meta name='description'         content='Play Rock, Paper, Scissors but with your webcam and your hands!'>
+  <meta property='og:description'  content='Play Rock, Paper, Scissors but with your webcam and your hands!'>
+  <meta property="og:image"  content="/favicon.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/codingMASTER398/clean-replit-auth/auth.min.js"></script>
+
+  <script defer type="module" src="./script.js"></script>
+
+  <link rel="stylesheet" href="./style.css">
+</script>
+</head>
+
+<body>
+  <h1 class="infoText top">Rock, Paper, Scissors <b>Camera</b>!</h1>
+  <div class="container">
+    <video class="input_video" hidden></video>
+    <div class="projection">
+      <canvas class="output_canvas" width="1280px" height="720px"></canvas>
+      <h1 id="pose"></h1>
+    </div>
+    <div class="projection">
+      <canvas class="output_second" width="1280px" height="720px"></canvas>
+      <h1 id="pose_second"></h1>
+    </div>
+  </div>
+  
+  <div id="bottom" hidden>
+    <h2 class="infoText" id="countdown"></h2>
+    <h2 class="infoText" id="out"></h2>
+    <h1 class="infoText" id="rps"></h1>
+  </div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+body{
+  margin: 0;
+  margin-top: 12px;
+  background-color: #1C2333;
+}
+
+*{
+  font-family: sans-serif;
+  color: white;
+}
+
+button{
+  color: black;
+}
+
+.projection canvas{
+  width: 75vh;
+  height: 75vh;
+  background-color: black;
+}
+
+.projection{
+  width: 75vh;
+  height: 75vh;
+  position: relative;
+  margin: 6px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.projection h1{
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 300%;
+  text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #919191,
+               0 3px 0 #707070,
+               0 4px 0 #464444,
+               0 5px 0 #292929,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+  animation: bop 3s ease-in-out infinite;
+}
+
+@keyframes bop{
+  0%{
+    bottom:0;
+  }
+  50%{
+    bottom:5px;
+  }
+  100%{
+    bottom:0;
+  }
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoText{
+  text-align: center;
+}
+
+.top{
+  margin: 3px;
+  margin-bottom: 24px;
+}
+
+.top:after{
+  width:42px;
+  background: #FFFFFF;
+  height: 3px;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-top: 6px;
+  animation: left-right 10s ease-out infinite;
+}
+
+@keyframes left-right{
+  0%{
+    left: 45%;
+  }
+  50%{
+    left: 55%;
+  }
+  100%{
+    left: 45%;
+  }
+}
+
+#replit{
+  padding: 12px;
+  background-color: black;
+  color: white;
+  border-style: solid;
+  border-radius: 6px;
+  margin: 6px;
+  transition: 0.5s;
+  font-size: x-large;
+}
+#loginContainer{
+  text-align: center;
+  padding: 6px;
+}
+#replit:hover{
+  background-color: rgb(33, 33, 33);
+  transition: 0.5s;
+}
+
+#bottom{
+  background-color: #0d0d0d;
+  padding: 8px;
+  padding-right: 7.5%;
+  padding-left: 7.5%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 85%;
+
+  transition: 0.5s;
+}
+
+#countdown{
+  font-size: xx-large;
+  background: #04040b;
+  border: 2px dotted #383838;
+  border-radius: 50%;
+  padding: 12px;
+  display: inline-block;
+  float: left;
+  margin: 0;
+
+  min-width: 35px;
+
+  text-align: center;
+
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+#rps{
+  float: right;
+  text-align: right;
+  font-size: xx-large;
+  padding: 8px;
+  margin: 0px;
+}
+#out{
+  text-align: right;
+  margin:0px;
+  padding: 12px;
+  font-size: medium;
+}
+
+.green{
+  background-color: #37763f !important;
+}
+.red{
+  background-color: #943333 !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  .projection, .projection canvas{
+    width: 65vh;
+    height: 65vh;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .projection, .projection canvas{
+    width: 60vh;
+    height: 60vh;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .projection, .projection canvas{
+    width: 45vh;
+    height: 45vh;
+  }
+}
+@media only screen and (max-width: 740px) {
+  .projection, .projection canvas{
+    width: 30vh;
+    height: 30vh;
+  }
+  .container{
+    flex-wrap: wrap;
+  }
+}
