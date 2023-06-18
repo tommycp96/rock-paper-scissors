@@ -24,8 +24,8 @@ jobs:
           RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
         run: |
           # Variables
-          RENDER_TOKEN = $RENDER_TOKEN
-          RENDER_SERVICE_ID = $RENDER_SERVICE_ID
+          RENDER_TOKEN = "$RENDER_TOKEN"
+          RENDER_SERVICE_ID = "$RENDER_SERVICE_ID"
 
           # Make API call to Render
           response=$(curl --request GET \
@@ -37,8 +37,8 @@ jobs:
           latest_status=$(echo "$response" | jq -r '.[] | select(.branch == "main") | .status')
 
           # Check if deployment status is successful or not
-          if [[ "$latest_status" == "live" ]]; then
-            echo "Live in Production"
+          if [[ "$latest_status" == "succeeded" ]]; then
+            echo "::set-output name=status::success"
           else
-            echo "Deployment failed :("
+            echo "::set-output name=status::failure"
           fi
