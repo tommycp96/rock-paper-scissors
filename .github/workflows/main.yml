@@ -1,0 +1,29 @@
+name: Render Deployment Status
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deployment_status:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up shell environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Run deployment status script
+        env:
+          RENDER_TOKEN: ${{ secrets.RENDER_TOKEN }}
+          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+        run: |
+          curl --request GET \
+           --url 'https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys?limit=20' \
+           --header 'accept: application/json' \
+           --header 'authorization: Bearer $RENDER_TOKEN'
