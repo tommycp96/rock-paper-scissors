@@ -34,7 +34,7 @@ jobs:
 
           # Check if deployment status is successful or not
           if [[ "$latest_status" == "live" ]]; then
-            echo "::set-output name=status::success"
+            echo "status=Live in Production!" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=status::failure"
+            echo "status=Deployment Failed :(" >> $GITHUB_OUTPUT
           fi
