@@ -23,15 +23,11 @@ jobs:
           RENDER_TOKEN: ${{ secrets.RENDER_TOKEN }}
           RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
         run: |
-          # Variables
-          # RENDER_TOKEN = "$RENDER_TOKEN"
-          # RENDER_SERVICE_ID = "$RENDER_SERVICE_ID"
-
-          # Make API call to Render
+          # Make API call to Render to check deployment status
           response=$(curl --request GET \
-                     --url 'https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys?limit=20' \
-                     --header 'accept: application/json' \
-                     --header 'authorization: Bearer $RENDER_TOKEN')
+                     --url "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys?limit=20" \
+                     --header "accept: application/json" \
+                     --header "authorization: Bearer $RENDER_TOKEN")
 
           # Parse the JSON response to get the latest deployment status
           latest_status=$(echo "$response" | jq -r '.[] | select(.branch == "main") | .status')
