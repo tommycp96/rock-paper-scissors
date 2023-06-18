@@ -33,7 +33,7 @@ jobs:
           latest_status=$(echo "$response" | jq -r '.[] | select(.branch == "main") | .status')
 
           # Check if deployment status is successful or not
-          if [[ "$latest_status" == "succeeded" ]]; then
+          if [[ "$latest_status" == "live" ]]; then
             echo "::set-output name=status::success"
           else
             echo "::set-output name=status::failure"
